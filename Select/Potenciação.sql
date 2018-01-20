@@ -1,0 +1,1 @@
+SELECT POWER(10, 3)

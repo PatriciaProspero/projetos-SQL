@@ -1,0 +1,19 @@
+-- SELECIONA DIA
+SELECT DAY('2015-04-30'); 
+
+-- SELECIONA O MÊS
+
+SELECT MONTH ('2015-04-30');
+
+-- SELECIONA O ANO
+
+SELECT YEAR ('2015-04-30');
+
+-- SELECIONA MÊS,DIA,ANO
+SELECT  MONTH('2015-04-30'), DAY('2015-04-30'), YEAR('2015-04-30'); 
+
+-- SELECIONA O NOME DO MÊS
+
+SELECT DATENAME(MONTH, '2015-04-30');
+
+-----------------------------------------------------------------

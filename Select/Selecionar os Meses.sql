@@ -1,0 +1,9 @@
+WITH Meses AS
+(
+  SELECT 1 AS IdMes, DATENAME(MONTH, 0) AS NomeMes
+  UNION ALL
+  SELECT IdMes + 1, DATENAME(MONTH, DATEADD(MONTH, IdMes, 0))
+  FROM Meses
+  WHERE IdMes < 12
+)
+SELECT * FROM Meses

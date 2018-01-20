@@ -1,0 +1,35 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[EX_PATRICIA]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure [dbo].[EX_PATRICIA]
+GO
+
+CREATE PROCEDURE EX_PATRICIA
+
+/*COLOCAR OS PARAMENTROS*/
+
+	@NOME	VARCHAR(50)	= null,
+	@VENDAS	FLOAT 		= null,
+	@DATA	DATE		= null
+
+AS
+BEGIN
+
+	BEGIN TRY 
+		BEGIN TRAN
+
+/*EXECUTA TUDO OU NADA*/
+
+SELECT * FROM INFORMACOES
+WHERE NOME = @NOME
+
+		COMMIT TRAN
+	END TRY 
+	BEGIN CATCH 
+		ROLLBACK TRAN
+
+		SELECT ERROR_MESSAGE () AS RETORNO
+	END CATCH
+
+
+END 
+
+EXEC EX_PATRICIA 'LISBOA'

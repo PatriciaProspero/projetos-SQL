@@ -1,0 +1,9 @@
+WITH DiaSemana AS
+(
+  SELECT 1 AS idDSe, DATENAME(WEEKDAY, -1) AS nomeDSe
+  UNION ALL
+  SELECT idDSe + 1, DATENAME(WEEKDAY, idDSe -1)
+  FROM DiaSemana
+  WHERE idDSe < 7
+)
+SELECT idDSe, nomeDSe FROM DiaSemana
