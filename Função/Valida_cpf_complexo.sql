@@ -160,9 +160,10 @@ if Len(@CPF) = 9
   --retorna o digito do CNPJ
   select @digitocpf = @digito1 + @digito2
 	
-  if @digitocpf = @digitopassado
+  if @digitocpf = @digitopassado 
      select @verdadeiro=1
 
 	RETURN(@verdadeiro)
 END
 GO
+--test
